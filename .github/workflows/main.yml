@@ -36,6 +36,9 @@ jobs:
         with:
           name: windows
           path: build/windows
+      - name: Deploy Itch
+        run: |
+          butler push ./build/windows $ITCHIO_USERNAME/$ITCHIO_GAME:windows
 
   export-linux:
     name: Linux Export
