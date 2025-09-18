@@ -2,7 +2,8 @@ extends Node2D
 
 # Liste des chemins vers tes scènes
 const Scenes := {
-	"MAIN_MENU" = "res://scenes/main_menu.tscn"
+	"MAIN_MENU" = "res://scenes/main_menu.tscn",
+	"LEVEL_1" = "res://scenes/level_1.tscn"
 }
 
 # Scène actuelle
@@ -20,5 +21,5 @@ func change_scene(new_scene_path: String) -> void:
 
 	# Charge la nouvelle scène
 	var new_scene = load(new_scene_path).instantiate()
-	add_child(new_scene)
 	current_scene = new_scene
+	get_tree().current_scene.add_child(new_scene)

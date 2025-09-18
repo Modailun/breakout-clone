@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Breakout Clone"
-run/main_scene="uid://c46kv3a6ycixl"
+run/main_scene="uid://cogv2yv4ovkqq"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
