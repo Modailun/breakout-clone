@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Breakout Clone"
+run/main_scene="uid://c46kv3a6ycixl"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://scenes/game_manager.tscn"
