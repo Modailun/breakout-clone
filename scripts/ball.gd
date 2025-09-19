@@ -29,5 +29,6 @@ func _reset_ball():
 
 
 func _on_body_entered(body: Node) -> void:
+	print(body, "entered ball")
 	audio_stream_player_2d.play()
 	speed*=1.05
