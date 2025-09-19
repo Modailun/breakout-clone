@@ -13,6 +13,7 @@ bounce = 1.1
 radius = 8.0
 
 [node name="Ball" type="RigidBody2D"]
+collision_layer = 2
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_7s4qf")
 gravity_scale = 0.0
