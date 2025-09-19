@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://8grtefa8f74q"]
+
+[ext_resource type="PackedScene" uid="uid://c55ygok2gyyop" path="res://scenes/limit.tscn" id="1_v7u1d"]
+[ext_resource type="PackedScene" uid="uid://b7nfc8qy6471o" path="res://scenes/wall.tscn" id="2_yb3jd"]
+
+[node name="GameLimits" type="Node2D"]
+
+[node name="Limit" parent="." instance=ExtResource("1_v7u1d")]
+position = Vector2(600, 648)
+
+[node name="Wall" parent="." instance=ExtResource("2_yb3jd")]
+position = Vector2(0, 328)
+rotation = 1.5707964
+
+[node name="Wall2" parent="." instance=ExtResource("2_yb3jd")]
+position = Vector2(600, 0)
+rotation = 3.1415927
+
+[node name="Wall3" parent="." instance=ExtResource("2_yb3jd")]
+position = Vector2(1152, 328)
+rotation = -1.5707964

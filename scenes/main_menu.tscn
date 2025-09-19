@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cogv2yv4ovkqq"]
+[gd_scene load_steps=3 format=3 uid="uid://cogv2yv4ovkqq"]
 
 [ext_resource type="Script" uid="uid://5pgrwbq7mopt" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://bnyy22cuf50si" path="res://scenes/fond.tscn" id="2_ekxnf"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -14,9 +15,7 @@ theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 script = ExtResource("1_l6cm7")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+[node name="Fond" parent="." instance=ExtResource("2_ekxnf")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

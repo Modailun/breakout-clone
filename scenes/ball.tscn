@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4ec2j6r04wra"]
+
+[ext_resource type="Script" uid="uid://3dvl8tvha41e" path="res://scripts/ball.gd" id="1_7s4qf"]
+[ext_resource type="AudioStream" uid="uid://kr2pg03k4jns" path="res://assets/sounds/impactGlass_heavy_003.ogg" id="2_cxlvu"]
+[ext_resource type="Texture2D" uid="uid://dt8vhfvhg2qww" path="res://assets/sprites/Sans titre.png" id="2_f7cbr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7s4qf"]
+friction = 0.0
+rough = true
+bounce = 1.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s4qf"]
+radius = 8.0
+
+[node name="Ball" type="RigidBody2D"]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_7s4qf")
+gravity_scale = 0.0
+inertia = 1000.0
+contact_monitor = true
+linear_damp_mode = 1
+script = ExtResource("1_7s4qf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.1920929e-07, -1.1920929e-07)
+scale = Vector2(0.03836931, 0.03836931)
+texture = ExtResource("2_f7cbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7s4qf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cxlvu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
