@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Container
 
 
 func _on_start_game_pressed() -> void:

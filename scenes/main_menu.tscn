@@ -3,59 +3,63 @@
 [ext_resource type="Script" uid="uid://5pgrwbq7mopt" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://bnyy22cuf50si" path="res://scenes/fond.tscn" id="2_ekxnf"]
 
-[node name="MainMenu" type="MarginContainer"]
+[node name="MainMenu" type="Container"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="Fond" parent="." instance=ExtResource("2_ekxnf")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
 theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
-script = ExtResource("1_l6cm7")
 
-[node name="Fond" parent="." instance=ExtResource("2_ekxnf")]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Breakout Clone"
 
-[node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="MenuOptions" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="StartGame" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="StartGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
 text = "Start Game"
 
-[node name="Options" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
 text = "Options"
 
-[node name="Credits" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
 text = "Credits"
 
-[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
 text = "Exit"
 
-[node name="Version" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Version" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "v0.0.1
 Made with Godot"
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/StartGame" to="." method="_on_start_game_pressed"]
