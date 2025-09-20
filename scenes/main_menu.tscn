@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cogv2yv4ovkqq"]
+[gd_scene load_steps=6 format=3 uid="uid://cogv2yv4ovkqq"]
 
 [ext_resource type="Script" uid="uid://5pgrwbq7mopt" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://bnyy22cuf50si" path="res://scenes/fond.tscn" id="2_ekxnf"]
+[ext_resource type="SystemFont" uid="uid://dqs8dyyyocwg8" path="res://assets/Font/new_system_font.tres" id="3_bqqt6"]
 
-[node name="MainMenu" type="Container"]
+[sub_resource type="LabelSettings" id="LabelSettings_bqqt6"]
+font = ExtResource("3_bqqt6")
+stacked_outline_count = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font = ExtResource("3_bqqt6")
+
+[node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,6 +38,7 @@ layout_mode = 2
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Breakout Clone"
+label_settings = SubResource("LabelSettings_bqqt6")
 
 [node name="MenuOptions" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -57,6 +66,7 @@ text = "Exit"
 layout_mode = 2
 text = "v0.0.1
 Made with Godot"
+label_settings = SubResource("LabelSettings_wu84c")
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

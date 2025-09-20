@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://da02n1omopkkx"]
 
-[ext_resource type="Texture2D" uid="uid://bn4hkq12jdh1q" path="res://icon.svg" id="1_uwb1u"]
 [ext_resource type="Script" uid="uid://bh0uyge1alhun" path="res://scripts/pause_ui.gd" id="1_ypbrs"]
+[ext_resource type="Texture2D" uid="uid://n7g03qmw3ye5" path="res://assets/sprites/exitRight.png" id="2_ypbrs"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_rus8k"]
 device = -1
@@ -11,16 +11,15 @@ keycode = 4194305
 events = [SubResource("InputEventKey_rus8k")]
 
 [node name="Pause UI" type="MarginContainer"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 136.0
-offset_bottom = 136.0
+offset_right = 160.0
+offset_bottom = 160.0
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_ypbrs")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 2
 shortcut = SubResource("Shortcut_ypbrs")
-texture_normal = ExtResource("1_uwb1u")
+texture_normal = ExtResource("2_ypbrs")
+stretch_mode = 0
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

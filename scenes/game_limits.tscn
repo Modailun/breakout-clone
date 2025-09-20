@@ -14,7 +14,7 @@ rotation = 1.5707964
 
 [node name="Wall2" parent="." instance=ExtResource("2_yb3jd")]
 position = Vector2(600, 0)
-rotation = 3.1415927
+rotation = -3.1415925
 
 [node name="Wall3" parent="." instance=ExtResource("2_yb3jd")]
 position = Vector2(1152, 328)

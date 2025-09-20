@@ -9,6 +9,9 @@
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_014kd")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
 [node name="Fond" parent="." instance=ExtResource("2_5xbjy")]
 
 [node name="Pause UI" parent="." instance=ExtResource("2_bswci")]
