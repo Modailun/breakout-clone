@@ -23,6 +23,7 @@ linear_damp_mode = 1
 script = ExtResource("1_7s4qf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-1.1920929e-07, -1.1920929e-07)
 scale = Vector2(0.03836931, 0.03836931)
 texture = ExtResource("2_f7cbr")

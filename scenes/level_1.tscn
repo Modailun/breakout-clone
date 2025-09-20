@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ydj53odfj0he"]
+[gd_scene load_steps=5 format=3 uid="uid://ydj53odfj0he"]
 
-[ext_resource type="Script" uid="uid://ccgql36momwxu" path="res://scripts/level_1.gd" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://bnyy22cuf50si" path="res://scenes/fond.tscn" id="2_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://da02n1omopkkx" path="res://scenes/pause_ui.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://8grtefa8f74q" path="res://scenes/game_limits.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://b4ec2j6r04wra" path="res://scenes/ball.tscn" id="5_4nkto"]
 
 [node name="Level 1" type="Node2D"]
-script = ExtResource("1_014kd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

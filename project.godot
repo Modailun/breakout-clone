@@ -21,7 +21,7 @@ GameManager="*res://scenes/game_manager.tscn"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [rendering]
 
