@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cogv2yv4ovkqq"]
+[gd_scene load_steps=8 format=3 uid="uid://cogv2yv4ovkqq"]
 
 [ext_resource type="Script" uid="uid://5pgrwbq7mopt" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://eg62ajbv7inv" path="res://scenes/background.tscn" id="2_wu84c"]
 [ext_resource type="SystemFont" uid="uid://dqs8dyyyocwg8" path="res://assets/font/new_system_font.tres" id="3_bqqt6"]
 [ext_resource type="Theme" uid="uid://cbnm1b1f2tdh8" path="res://assets/font/new_theme.tres" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://d2fxn46q4w8q0" path="res://assets/sprites/Unnamed.png" id="5_8ln24"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bqqt6"]
 font = ExtResource("3_bqqt6")
-font_size = 32
+font_size = 64
 stacked_outline_count = 3
 stacked_outline_0/size = 4
 stacked_outline_0/color = Color(0.69803923, 0.5058824, 0.44313726, 1)
@@ -18,6 +19,7 @@ stacked_outline_2/color = Color(0.7900664, 0.17742503, 0.2459189, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
 font = ExtResource("3_bqqt6")
+font_size = 32
 outline_size = 1
 
 [node name="MainMenu" type="MarginContainer"]
@@ -60,24 +62,28 @@ alignment = 1
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 48
 text = "Start Game"
 
 [node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 48
 text = "Options"
 
 [node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 48
 text = "Credits"
 
 [node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 48
 text = "Exit"
 
 [node name="Version" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -90,5 +96,11 @@ label_settings = SubResource("LabelSettings_wu84c")
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Unnamed" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
+texture_filter = 1
+position = Vector2(1344, 443)
+scale = Vector2(7.812498, 7.812498)
+texture = ExtResource("5_8ln24")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/StartGame" to="." method="_on_start_game_pressed"]
