@@ -17,7 +17,7 @@ func _ready() -> void:
 	var angle_radians = deg_to_rad(randf_range(-60, 60))
 	# Crée un vecteur de direction vers le haut avec un angle aléatoire
 	initial_velocity = Vector2(-sin(angle_radians), -cos(angle_radians))
-	_reset_ball()
+	reset_ball()
 	# Applique une impulsion initiale à la balle (corrigé : normalisation avant multiplication)
 	apply_central_impulse(initial_velocity.normalized() * speed)
 
@@ -34,7 +34,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		should_reset = false
 
 # Réinitialise la balle à sa position et vitesse initiale
-func _reset_ball() -> void:
+func reset_ball() -> void:
 	print('reset ball')
 	speed = 400.0
 	print(speed)
@@ -54,5 +54,4 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 	# Joue un son de collision
 	audio_stream_player_2d.stop()
 	audio_stream_player_2d.play()
-	# Augmente la vitesse de 5% à chaque collision
-	# speed *= 1.05
+
