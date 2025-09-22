@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ydj53odfj0he"]
+[gd_scene load_steps=6 format=3 uid="uid://ydj53odfj0he"]
 
 [ext_resource type="PackedScene" uid="uid://eg62ajbv7inv" path="res://scenes/background.tscn" id="1_4nkto"]
 [ext_resource type="PackedScene" uid="uid://da02n1omopkkx" path="res://scenes/pause_ui.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://8grtefa8f74q" path="res://scenes/game_limits.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://b4ec2j6r04wra" path="res://scenes/ball.tscn" id="5_4nkto"]
+[ext_resource type="PackedScene" uid="uid://bqj5jhyd55inb" path="res://scenes/paddle.tscn" id="5_fcfvj"]
 
 [node name="Level 1" type="MarginContainer"]
 anchors_preset = 15
@@ -24,3 +25,6 @@ layout_mode = 2
 
 [node name="Ball" parent="." instance=ExtResource("5_4nkto")]
 position = Vector2(976, 992)
+
+[node name="Paddle" parent="." instance=ExtResource("5_fcfvj")]
+position = Vector2(976, 1024)

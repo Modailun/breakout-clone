@@ -1,13 +1,13 @@
 extends RigidBody2D
 
 # Vitesse initiale aléatoire de la balle
-var initial_velocity : Vector2 #randi_range(-1000, -1),randi_range(-1000, 1000)
+@export var initial_velocity : Vector2 #randi_range(-1000, -1),randi_range(-1000, 1000)
 # Vitesse constante de la balle
-var speed:= 400.0
+@export var speed: float = 400.0
 # Flag pour indiquer si la balle doit être réinitialisée
-var should_reset:= false
+@export var should_reset: bool = false
 # Position initiale de la balle
-var initial_position:= Vector2(976, 992)
+@export var initial_position: Vector2 = Vector2(976, 992)
 # Référence au lecteur audio pour les collisions
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
