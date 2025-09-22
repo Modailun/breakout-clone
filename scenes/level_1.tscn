@@ -29,6 +29,7 @@ position = Vector2(976, 992)
 
 [node name="Paddle" parent="." instance=ExtResource("5_fcfvj")]
 position = Vector2(976, 1024)
+collision_layer = 3
 
 [node name="Blocks" type="Node2D" parent="."]
 

@@ -47,10 +47,11 @@ func _reset_ball() -> void:
 	# Réapplique l'impulsion initiale
 	apply_central_impulse(initial_velocity.normalized() * speed)
 
-# Appelé quand la balle entre en collision avec un autre corps
-func _on_body_entered(body: Node) -> void:
-	print(body, "entered ball")
+# Gère les collisions avec d'autres corps
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	print(body.name, "exited ball")
 	# Joue un son de collision
+	audio_stream_player_2d.stop()
 	audio_stream_player_2d.play()
 	# Augmente la vitesse de 5% à chaque collision
 	# speed *= 1.05

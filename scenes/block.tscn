@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://df0l6sjepihcc"]
+[gd_scene load_steps=4 format=3 uid="uid://df0l6sjepihcc"]
 
 [ext_resource type="Texture2D" uid="uid://buqursuq1ny1v" path="res://assets/sprites/Paddle.png" id="1_8r6n6"]
+[ext_resource type="Script" uid="uid://dreqmxdquq7qr" path="res://scripts/block.gd" id="1_cgrg5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r6n6"]
 size = Vector2(64, 32)
 
 [node name="Block" type="AnimatableBody2D"]
+script = ExtResource("1_cgrg5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0625, 0.25)
