@@ -50,8 +50,10 @@ func reset_ball() -> void:
 # Gère les collisions avec d'autres corps
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	# print(body.name, " exited ball")
-
 	# Joue un son de collision
 	audio_stream_player_2d.stop()
 	audio_stream_player_2d.play()
 
+func accelerate_ball(factor: float) -> void:
+	speed *= factor
+	print("New speed: ", speed)
