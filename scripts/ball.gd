@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 # Vitesse initiale aléatoire de la balle
-var initial_velocity: Vector2 #randi_range(-1000, -1),randi_range(-1000, 1000)
+var initial_velocity : Vector2 #randi_range(-1000, -1),randi_range(-1000, 1000)
 # Vitesse constante de la balle
 var speed:= 400.0
 # Flag pour indiquer si la balle doit être réinitialisée

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3dvl8tvha41e" path="res://scripts/ball.gd" id="1_7s4qf"]
 [ext_resource type="AudioStream" uid="uid://kr2pg03k4jns" path="res://assets/sounds/impactGlass_heavy_003.ogg" id="2_cxlvu"]
-[ext_resource type="Texture2D" uid="uid://dt8vhfvhg2qww" path="res://assets/sprites/Sans titre.png" id="2_f7cbr"]
+[ext_resource type="Texture2D" uid="uid://dt8vhfvhg2qww" path="res://assets/sprites/Ball.png" id="2_f7cbr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7s4qf"]
 friction = 0.0

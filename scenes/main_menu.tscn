@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://eg62ajbv7inv" path="res://scenes/background.tscn" id="2_wu84c"]
 [ext_resource type="SystemFont" uid="uid://dqs8dyyyocwg8" path="res://assets/font/new_system_font.tres" id="3_bqqt6"]
 [ext_resource type="Theme" uid="uid://cbnm1b1f2tdh8" path="res://assets/font/new_theme.tres" id="4_wu84c"]
-[ext_resource type="Texture2D" uid="uid://d2fxn46q4w8q0" path="res://assets/sprites/Unnamed.png" id="5_8ln24"]
+[ext_resource type="Texture2D" uid="uid://d2fxn46q4w8q0" path="res://assets/sprites/Breakout Icon.png" id="5_8ln24"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bqqt6"]
 font = ExtResource("3_bqqt6")
