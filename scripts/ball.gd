@@ -48,8 +48,9 @@ func _reset_ball() -> void:
 	apply_central_impulse(initial_velocity.normalized() * speed)
 
 # Gère les collisions avec d'autres corps
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	print(body.name, "exited ball")
+func _on_area_2d_body_exited(_body: Node2D) -> void:
+	# print(body.name, " exited ball")
+
 	# Joue un son de collision
 	audio_stream_player_2d.stop()
 	audio_stream_player_2d.play()
