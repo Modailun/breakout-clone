@@ -60,6 +60,45 @@ jobs:
           name: web
           path: build/web
 
+  github-release:
+    name: Create GitHub Release
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Get version from tag
+        run: |
+          TAGVERSION=$(git describe --tags --abbrev=0)
+          echo "TAGVERSION=${TAGVERSION:1}" >> $GITHUB_ENV
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: windows
+          path: build/windows
+      - name: Download Linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: linux
+          path: build/linux
+      - name: Download Web artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: web
+          path: build/web
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ env.TAGVERSION }}
+          body: |
+            **Changelog for ${{ env.TAGVERSION }}**
+            - Windows, Linux, and Web builds available.
+          files: |
+            build/windows/*
+            build/linux/*
+            build/web/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   release:
     name: Release to itch.io
     needs: build
