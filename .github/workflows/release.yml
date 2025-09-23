@@ -1,9 +1,10 @@
 name: Release to itch.io
 
 on:
-  push:
-    tags:
-    - 'v*'
+  workflow_run:
+    workflows: ["godot-ci export"]
+    types:
+      - completed
 
 env:
   ITCH_USER_NAME: modailun
