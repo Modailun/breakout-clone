@@ -26,7 +26,7 @@ This project is a simple Breakout game clone, where the player controls a paddle
 
 ### Play the Game
 
-You can play the latest version of **Breakout Clone** directly from [itch.io](https://modailun.itch.io/breakout-clone). Just download and run the game from the page!
+You can play the latest version of **Breakout Clone** directly from [itch.io](https://modailun.itch.io/breakout-clone). Just download and run the game from the page! You can also download the latest release from the release [page](https://github.com/Modailun/breakout-clone/releases).
 
 ### For Developers
 
