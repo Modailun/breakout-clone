@@ -15,10 +15,13 @@ jobs:
     name: Release to itch.io
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout the correct commit
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.workflow_run.head_sha }}
     - name: Get version from tag
       run: |
-        TAGVERSION=$(git describe --tags --abbrev=0)
+        TAGVERSION=$(git describe --tags --abbrev=0 ${{ github.event.workflow_run.head_sha }})
         echo "TAGVERSION=${TAGVERSION:1}" >> $GITHUB_ENV
 
     # Télécharger les artifacts du workflow de build
