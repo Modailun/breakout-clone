@@ -6,6 +6,9 @@ const Scenes := {
 	"LEVEL_1" = "res://scenes/level_1.tscn"
 }
 
+var score : int = 0
+var lives : int = 3
+
 # Scène actuelle
 var current_scene : Node = null
 
