@@ -1,0 +1,48 @@
+name: Release to itch.io
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+env:
+  ITCH_USER_NAME: modailun
+  ITCH_GAME_NAME: breakout-clone
+
+jobs:
+  release-itch:
+    name: Release to itch.io
+    runs-on: ubuntu-24.04
+    steps:
+    - uses: actions/checkout@v4
+    - name: Get version from tag
+      run: |
+        TAGVERSION=$(git describe --tags --abbrev=0)
+        echo "TAGVERSION=${TAGVERSION:1}" >> $GITHUB_ENV
+    - name: Publish Windows build to itch.io
+      uses: yeslayla/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+        CHANNEL: windows
+        ITCH_GAME: ${{ env.ITCH_GAME_NAME }}
+        ITCH_USER: ${{ env.ITCH_USER_NAME }}
+        PACKAGE: build/windows
+        VERSION: ${{ env.TAGVERSION }}
+    - name: Publish Linux build to itch.io
+      uses: yeslayla/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+        CHANNEL: linux
+        ITCH_GAME: ${{ env.ITCH_GAME_NAME }}
+        ITCH_USER: ${{ env.ITCH_USER_NAME }}
+        PACKAGE: build/linux
+        VERSION: ${{ env.TAGVERSION }}
+    - name: Publish Web build to itch.io
+      uses: yeslayla/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+        CHANNEL: web
+        ITCH_GAME: ${{ env.ITCH_GAME_NAME }}
+        ITCH_USER: ${{ env.ITCH_USER_NAME }}
+        PACKAGE: build/web
+        VERSION: ${{ env.TAGVERSION }}
