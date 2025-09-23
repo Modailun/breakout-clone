@@ -39,6 +39,17 @@ jobs:
         with:
           name: windows
           path: build/windows
+      - name: Get and save tag
+        run: |
+          TAGVERSION=$(git describe --tags --abbrev=0)
+          echo "TAGVERSION=${TAGVERSION:1}" >> $GITHUB_ENV
+          echo "${{ env.TAGVERSION }}" > tag_version.txt
+      - name: Upload tag as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tag_version
+          path: tag_version.txt
+
 
   export-linux:
     name: Linux Export
