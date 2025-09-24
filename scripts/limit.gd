@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var game_manager: Node = %GameManager
 
 func _on_body_entered(body: Node2D) -> void:
 	print("Dead Ball", body)
@@ -7,13 +8,13 @@ func _on_body_entered(body: Node2D) -> void:
 	var ball = body as RigidBody2D
 	ball.reset_ball()
 	# Decrease life
-	GameManager.lives -= 1
-	print("Lives: ", GameManager.lives)
+	game_manager.lose_life()
+	#print("Lives: ", game_manager.lives)
 	# Check for game over
-	if GameManager.lives <= 0:
+	if game_manager.lives <= 0:
 		print("Game Over")
 		# Reset score and lives
-		GameManager.score = 0
-		GameManager.lives = 3
+		game_manager.score = 0
+		game_manager.lives = 3
 		# Go to main menu
-		GameManager.change_scene(GameManager.Scenes["MAIN_MENU"])
+		ScenesManager.change_scene(ScenesManager.Scenes["MAIN_MENU"])

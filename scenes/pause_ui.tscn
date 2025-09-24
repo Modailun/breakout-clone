@@ -12,7 +12,7 @@ events = [SubResource("InputEventKey_rus8k")]
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uwb1u"]
 load_path = "res://.godot/imported/exitRight.png-e683ae44306d9cc20becfa1780d0bf63.ctex"
 
-[node name="Pause UI" type="CanvasLayer"]
+[node name="PauseUI" type="CanvasLayer"]
 scale = Vector2(0.25, 0.25)
 transform = Transform2D(0.25, 0, 0, 0.25, 0, 0)
 script = ExtResource("1_ypbrs")
