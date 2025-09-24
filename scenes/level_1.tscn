@@ -1,18 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://ydj53odfj0he"]
+[gd_scene load_steps=13 format=3 uid="uid://ydj53odfj0he"]
 
 [ext_resource type="PackedScene" uid="uid://eg62ajbv7inv" path="res://scenes/background.tscn" id="1_4nkto"]
+[ext_resource type="Script" uid="uid://dc86fna615203" path="res://scripts/level_1.gd" id="1_15mv3"]
 [ext_resource type="PackedScene" uid="uid://da02n1omopkkx" path="res://scenes/pause_ui.tscn" id="2_bswci"]
-[ext_resource type="PackedScene" uid="uid://8grtefa8f74q" path="res://scenes/game_limits.tscn" id="3_rus8k"]
+[ext_resource type="PackedScene" uid="uid://c55ygok2gyyop" path="res://scenes/limit.tscn" id="3_2y5yt"]
+[ext_resource type="PackedScene" uid="uid://b7nfc8qy6471o" path="res://scenes/wall.tscn" id="4_2os1m"]
 [ext_resource type="PackedScene" uid="uid://b4ec2j6r04wra" path="res://scenes/ball.tscn" id="5_4nkto"]
 [ext_resource type="PackedScene" uid="uid://bqj5jhyd55inb" path="res://scenes/paddle.tscn" id="5_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://df0l6sjepihcc" path="res://scenes/block.tscn" id="6_fcfvj"]
+[ext_resource type="SystemFont" uid="uid://dqs8dyyyocwg8" path="res://assets/font/new_system_font.tres" id="7_pa8r4"]
+[ext_resource type="Script" uid="uid://noiukak8poan" path="res://scripts/game_manager.gd" id="8_e3sih"]
 
-[node name="Level 1" type="MarginContainer"]
+[sub_resource type="LabelSettings" id="LabelSettings_e3sih"]
+font = ExtResource("7_pa8r4")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_2y5yt"]
+font = ExtResource("7_pa8r4")
+font_size = 32
+
+[node name="Level1" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_15mv3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -20,9 +33,22 @@ anchor_mode = 0
 [node name="Background" parent="." instance=ExtResource("1_4nkto")]
 layout_mode = 2
 
-[node name="Pause UI" parent="." instance=ExtResource("2_bswci")]
+[node name="GameLimits" type="Node" parent="."]
 
-[node name="GameLimits" parent="." instance=ExtResource("3_rus8k")]
+[node name="Limit" parent="GameLimits" instance=ExtResource("3_2y5yt")]
+position = Vector2(976, 1080)
+
+[node name="Wall" parent="GameLimits" instance=ExtResource("4_2os1m")]
+position = Vector2(0, 496)
+rotation = 1.5707964
+
+[node name="Wall2" parent="GameLimits" instance=ExtResource("4_2os1m")]
+position = Vector2(976, 0)
+rotation = -3.1415925
+
+[node name="Wall3" parent="GameLimits" instance=ExtResource("4_2os1m")]
+position = Vector2(1920, 496)
+rotation = -1.5707964
 
 [node name="Ball" parent="." instance=ExtResource("5_4nkto")]
 position = Vector2(976, 992)
@@ -283,3 +309,25 @@ position = Vector2(1696, 560)
 
 [node name="Block84" parent="Blocks" instance=ExtResource("6_fcfvj")]
 position = Vector2(1824, 560)
+
+[node name="PauseUI" parent="." instance=ExtResource("2_bswci")]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_e3sih")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+texture_filter = 1
+offset_left = 1024.0
+offset_right = 1152.0
+offset_bottom = 44.666668
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_e3sih")
+
+[node name="LivesLabel" type="Label" parent="GameManager"]
+texture_filter = 1
+offset_left = 800.0
+offset_right = 918.0
+offset_bottom = 44.666668
+text = "Lives: 3"
+label_settings = SubResource("LabelSettings_2y5yt")

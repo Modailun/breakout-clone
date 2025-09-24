@@ -35,7 +35,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 # Réinitialise la balle à sa position et vitesse initiale
 func reset_ball() -> void:
-	print('reset ball')
+	#print('reset ball')
 	speed = 400.0
 	print(speed)
 	should_reset = true
@@ -56,4 +56,4 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 
 func accelerate_ball(factor: float) -> void:
 	speed *= factor
-	print("New speed: ", speed)
+	#print("New speed: ", speed)
