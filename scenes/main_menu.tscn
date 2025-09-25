@@ -89,7 +89,7 @@ text = "Exit"
 [node name="Version" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-text = "v0.0.2
+text = "v0.0.3
 Made with Godot"
 label_settings = SubResource("LabelSettings_wu84c")
 
@@ -104,3 +104,4 @@ scale = Vector2(7.812498, 7.812498)
 texture = ExtResource("5_8ln24")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Exit" to="." method="_on_exit_pressed"]

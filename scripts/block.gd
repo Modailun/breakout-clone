@@ -2,7 +2,6 @@ extends AnimatableBody2D
 
 @onready var game_manager: Node = %GameManager
 
-
 func _on_area_2d_body_exited(body: Node2D) -> void:
     #print(body.name, " exited block")
     game_manager.add_point(10)
