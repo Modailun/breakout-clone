@@ -13,6 +13,13 @@ var mul: int = 1
 # Références aux labels pour afficher le score et les vies
 @onready var score_label: Label = $ScoreLabel
 @onready var lives_label: Label = $LivesLabel
+@onready var best_score_label: Label = $BestScoreLabel
+
+func _ready() -> void:
+	# Initialise les labels avec les valeurs de départ
+	score_label.text = "Score: " + str(score)
+	lives_label.text = "Lives: " + str(lives)
+	best_score_label.text = "Best score: " + str(get_high_score())
 
 # Ajoute des points au score
 func add_point(points: int) -> void:
@@ -28,6 +35,7 @@ func add_point(points: int) -> void:
 	score += mul * points
     # Met à jour l'affichage du score
 	score_label.text = "Score: " + str(score)
+	best_score_label.text = "Best score: " + str(max(score, get_high_score()))
 
 	#print("Current count: ", count)  # Affiche le compteur actuel dans la console
 	#print("Current bricks: ", bricks)  # Affiche le compteur de bricks actuel dans la console
