@@ -51,7 +51,11 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="GameOverLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 60
+
+[node name="GameOverLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
 texture_filter = 1
 layout_mode = 2
 text = "You lost"
@@ -63,6 +67,14 @@ vertical_alignment = 1
 texture_filter = 1
 layout_mode = 2
 text = "Your score : X"
+label_settings = SubResource("LabelSettings_bnhvy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestScoreLoseLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Best score : X"
 label_settings = SubResource("LabelSettings_bnhvy")
 horizontal_alignment = 1
 vertical_alignment = 1
