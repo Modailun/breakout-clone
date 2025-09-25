@@ -55,6 +55,8 @@ func lose_life() -> void:
 func game_over(win: bool) -> void:
 	# Enregistre le dernier score dans le gestionnaire de scènes
 	ScenesManager.latest_score = score
+	save_high_score()  # Sauvegarde le meilleur score
+	ScenesManager.high_score = get_high_score()  # Récupère le meilleur score
 
 	# Réinitialise les variables pour une nouvelle partie
 	score = 0
@@ -70,3 +72,22 @@ func game_over(win: bool) -> void:
 		#print("You Win!")  # Affiche "You Win!" dans la console
 		# Charge l'écran de fin de partie (victoire)
 		ScenesManager.change_scene(ScenesManager.Scenes["END_SCREEN_WIN"])
+
+func save_high_score() -> void:
+	var config = ConfigFile.new()
+	config.load("user://savegame.cfg")
+	if not config.has_section("HighScores"):
+		config.set_value("HighScores", "score", score)
+	else:
+		var high_score = config.get_value("HighScores", "score", 0)
+		if score > high_score:
+			config.set_value("HighScores", "score", score)
+	config.save("user://savegame.cfg")
+
+func get_high_score() -> int:
+	var config = ConfigFile.new()
+	var error = config.load("user://savegame.cfg")
+	if error == OK:
+		if config.has_section("HighScores"):
+			return config.get_value("HighScores", "score", 0)
+	return 0
