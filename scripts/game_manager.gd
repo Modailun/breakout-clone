@@ -38,7 +38,7 @@ func add_point(points: int) -> void:
 # Retire une vie au joueur
 func lose_life() -> void:
 	#print("Losing a life")  # Affiche la perte de vie dans la console
-	score -= 50  # Pénalité de 50 points pour la perte d'une vie
+	score = max(0, score - 50)  # Pénalité de 50 points pour la perte d'une vie
 
 	if lives > 1:
 		lives -= 1  # Retire une vie
