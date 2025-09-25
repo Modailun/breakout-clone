@@ -8,6 +8,7 @@ const Scenes := {
 
 # Scène actuelle
 var current_scene : Node = null
+var high_score : int = 0
 
 func _ready():
 	# Charge la scène de départ (ex: menu principal)
