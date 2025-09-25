@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://buk7g6qmtk1hw"]
+[gd_scene load_steps=5 format=3 uid="uid://buk7g6qmtk1hw"]
 
 [ext_resource type="PackedScene" uid="uid://eg62ajbv7inv" path="res://scenes/background.tscn" id="1_sfd4r"]
+[ext_resource type="Script" uid="uid://bkrtf86feeg1f" path="res://scripts/end_screen_lose.gd" id="1_vfn7w"]
 [ext_resource type="SystemFont" uid="uid://dqs8dyyyocwg8" path="res://assets/font/new_system_font.tres" id="2_vfn7w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bnhvy"]
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vfn7w")
 
 [node name="Background" parent="." instance=ExtResource("1_sfd4r")]
 layout_mode = 2
@@ -39,7 +41,7 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Game Over" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="GameOverLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 text = "You lost"
@@ -47,7 +49,7 @@ label_settings = SubResource("LabelSettings_bnhvy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ScoreLoseLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 text = "Your score : X"
