@@ -16,7 +16,7 @@ var mul: int = 1
 
 # Ajoute des points au score
 func add_point(points: int) -> void:
-	print("Adding points: ", points)  # Affiche les points ajoutés dans la console
+	#print("Adding points: ", points)  # Affiche les points ajoutés dans la console
 	count += 1  # Incrémente le compteur de briques détruites
 	bricks += 1  # Incrémente le compteur total de briques détruites
 
@@ -29,15 +29,15 @@ func add_point(points: int) -> void:
     # Met à jour l'affichage du score
 	score_label.text = "Score: " + str(score)
 
-	print("Current count: ", count)  # Affiche le compteur actuel dans la console
-	print("Current bricks: ", bricks)  # Affiche le compteur de bricks actuel dans la console
+	#print("Current count: ", count)  # Affiche le compteur actuel dans la console
+	#print("Current bricks: ", bricks)  # Affiche le compteur de bricks actuel dans la console
 	# Si toutes les briques sont détruites (84), le joueur gagne
 	if bricks >= 84:
 		game_over(true)
 
 # Retire une vie au joueur
 func lose_life() -> void:
-	print("Losing a life")  # Affiche la perte de vie dans la console
+	#print("Losing a life")  # Affiche la perte de vie dans la console
 	score -= 50  # Pénalité de 50 points pour la perte d'une vie
 
 	if lives > 1:
@@ -63,10 +63,10 @@ func game_over(win: bool) -> void:
 	count = 0
 
 	if not win:
-		print("Game Over")  # Affiche "Game Over" dans la console
+		#print("Game Over")  # Affiche "Game Over" dans la console
 		# Charge l'écran de fin de partie (défaite)
 		ScenesManager.change_scene(ScenesManager.Scenes["END_SCREEN_LOSE"])
 	else:
-		print("You Win!")  # Affiche "You Win!" dans la console
+		#print("You Win!")  # Affiche "You Win!" dans la console
 		# Charge l'écran de fin de partie (victoire)
 		ScenesManager.change_scene(ScenesManager.Scenes["END_SCREEN_WIN"])
