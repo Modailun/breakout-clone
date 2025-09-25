@@ -63,14 +63,14 @@ texture_filter = 1
 layout_mode = 2
 theme = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 48
-text = "Start Game"
+text = "New Game"
 
 [node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 48
-text = "Options"
+text = "Settings"
 
 [node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 texture_filter = 1
@@ -89,7 +89,7 @@ text = "Exit"
 [node name="Version" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-text = "v0.0.3
+text = "v0.1.0
 Made with Godot"
 label_settings = SubResource("LabelSettings_wu84c")
 
@@ -104,4 +104,6 @@ scale = Vector2(7.812498, 7.812498)
 texture = ExtResource("5_8ln24")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Exit" to="." method="_on_exit_pressed"]

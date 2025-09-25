@@ -11,11 +11,11 @@
 [ext_resource type="SystemFont" uid="uid://dqs8dyyyocwg8" path="res://assets/font/new_system_font.tres" id="7_pa8r4"]
 [ext_resource type="Script" uid="uid://noiukak8poan" path="res://scripts/game_manager.gd" id="8_e3sih"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_e3sih"]
+[sub_resource type="LabelSettings" id="LabelSettings_2y5yt"]
 font = ExtResource("7_pa8r4")
 font_size = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_2y5yt"]
+[sub_resource type="LabelSettings" id="LabelSettings_e3sih"]
 font = ExtResource("7_pa8r4")
 font_size = 32
 
@@ -316,6 +316,14 @@ position = Vector2(1824, 560)
 unique_name_in_owner = true
 script = ExtResource("8_e3sih")
 
+[node name="LivesLabel" type="Label" parent="GameManager"]
+texture_filter = 1
+offset_left = 800.0
+offset_right = 918.0
+offset_bottom = 44.666668
+text = "Lives: 3"
+label_settings = SubResource("LabelSettings_2y5yt")
+
 [node name="ScoreLabel" type="Label" parent="GameManager"]
 texture_filter = 1
 offset_left = 1024.0
@@ -324,10 +332,10 @@ offset_bottom = 44.666668
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_e3sih")
 
-[node name="LivesLabel" type="Label" parent="GameManager"]
+[node name="BestScoreLabel" type="Label" parent="GameManager"]
 texture_filter = 1
-offset_left = 800.0
-offset_right = 918.0
+offset_left = 1504.0
+offset_right = 1632.0
 offset_bottom = 44.666668
-text = "Lives: 3"
-label_settings = SubResource("LabelSettings_2y5yt")
+text = "Best Score: 0"
+label_settings = SubResource("LabelSettings_e3sih")

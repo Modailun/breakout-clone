@@ -13,6 +13,13 @@ var mul: int = 1
 # Références aux labels pour afficher le score et les vies
 @onready var score_label: Label = $ScoreLabel
 @onready var lives_label: Label = $LivesLabel
+@onready var best_score_label: Label = $BestScoreLabel
+
+func _ready() -> void:
+	# Initialise les labels avec les valeurs de départ
+	score_label.text = "Score: " + str(score)
+	lives_label.text = "Lives: " + str(lives)
+	best_score_label.text = "Best score: " + str(get_high_score())
 
 # Ajoute des points au score
 func add_point(points: int) -> void:
@@ -28,6 +35,7 @@ func add_point(points: int) -> void:
 	score += mul * points
     # Met à jour l'affichage du score
 	score_label.text = "Score: " + str(score)
+	best_score_label.text = "Best score: " + str(max(score, get_high_score()))
 
 	#print("Current count: ", count)  # Affiche le compteur actuel dans la console
 	#print("Current bricks: ", bricks)  # Affiche le compteur de bricks actuel dans la console
@@ -55,6 +63,8 @@ func lose_life() -> void:
 func game_over(win: bool) -> void:
 	# Enregistre le dernier score dans le gestionnaire de scènes
 	ScenesManager.latest_score = score
+	save_high_score()  # Sauvegarde le meilleur score
+	ScenesManager.high_score = get_high_score()  # Récupère le meilleur score
 
 	# Réinitialise les variables pour une nouvelle partie
 	score = 0
@@ -70,3 +80,22 @@ func game_over(win: bool) -> void:
 		#print("You Win!")  # Affiche "You Win!" dans la console
 		# Charge l'écran de fin de partie (victoire)
 		ScenesManager.change_scene(ScenesManager.Scenes["END_SCREEN_WIN"])
+
+func save_high_score() -> void:
+	var config = ConfigFile.new()
+	config.load("user://savegame.cfg")
+	if not config.has_section("HighScores"):
+		config.set_value("HighScores", "score", score)
+	else:
+		var high_score = config.get_value("HighScores", "score", 0)
+		if score > high_score:
+			config.set_value("HighScores", "score", score)
+	config.save("user://savegame.cfg")
+
+func get_high_score() -> int:
+	var config = ConfigFile.new()
+	var error = config.load("user://savegame.cfg")
+	if error == OK:
+		if config.has_section("HighScores"):
+			return config.get_value("HighScores", "score", 0)
+	return 0
