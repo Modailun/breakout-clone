@@ -104,8 +104,9 @@ jobs:
           name: Release ${{ env.TAGVERSION }}
           body: |
             **Changelog for ${{ env.TAGVERSION }}**
-            - Fixed Score issues
-            - Added Win and Lose Screen with Score display
+            - Added Best Score management
+            - Added Settings scene (able to delete savegame)
+            - Added Credits scene
           files: |
             build/${{ env.EXPORT_NAME }}-windows-${{ env.TAGVERSION }}.zip
             build/${{ env.EXPORT_NAME }}-linux-${{ env.TAGVERSION }}.zip
